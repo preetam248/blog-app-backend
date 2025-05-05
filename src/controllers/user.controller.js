@@ -60,8 +60,10 @@ const signup = asyncHandler(async (req, res) => {
 });
 
 const login = asyncHandler(async (req, res) => {
+  console.log("inside")
   try {
     const { email, password } = req.body;
+    console.log(email, password)
     const user = await User.findOne({ email });
     if (!user) {
       return res
