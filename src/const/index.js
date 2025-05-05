@@ -1,0 +1,1 @@
+exports.DB_NAME = "blog_page";
