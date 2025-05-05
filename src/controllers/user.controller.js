@@ -8,6 +8,8 @@ const {
 const jwt = require("jsonwebtoken");
 const signup = asyncHandler(async (req, res) => {
   const { name, email, password } = req.body;
+  console.log("Body:", req.body);
+  console.log("File:", req.file);
   const localAvatarPath = req.file?.path;
   if (!name || !email || !password || !localAvatarPath) {
     return res
