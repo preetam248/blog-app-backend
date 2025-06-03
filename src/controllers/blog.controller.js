@@ -8,7 +8,7 @@ const {
 // view all blogs controller
 const allBlogs = asyncHandler(async (req, res) => {
   try {
-    const blogs = await Blog.find({}).sort({ createdAt: 1 });
+    const blogs = await Blog.find({}).sort({ createdAt: -1 });
     return res.status(200).json({ success: true, message: "All blogs", blogs });
   } catch (error) {
     return res
