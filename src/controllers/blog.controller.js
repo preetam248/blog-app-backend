@@ -5,6 +5,7 @@ const {
   deleteFromCloudinary,
 } = require("../utils/cloudinary");
 
+// view all blogs controller
 const allBlogs = asyncHandler(async (req, res) => {
   try {
     const blogs = await Blog.find({}).sort({ createdAt: -1 });
@@ -16,6 +17,7 @@ const allBlogs = asyncHandler(async (req, res) => {
   }
 });
 
+// create blog controller
 const createBlog = asyncHandler(async (req, res) => {
   try {
     const { title, category, description } = req.body;
@@ -54,6 +56,7 @@ const createBlog = asyncHandler(async (req, res) => {
   }
 });
 
+//delete blog controller
 const deleteBlog = asyncHandler(async (req, res) => {
   const blog = await Blog.findById(req.params.id);
 
@@ -71,6 +74,7 @@ const deleteBlog = asyncHandler(async (req, res) => {
     .json({ message: "blog deleted successfully", success: true });
 });
 
+//single blog controller
 const singleBlog = asyncHandler(async (req, res) => {
   try {
     const blog = await Blog.findById(req.params.id);
@@ -84,6 +88,7 @@ const singleBlog = asyncHandler(async (req, res) => {
   }
 });
 
+//user's blogs controller
 const userBlogs = asyncHandler(async (req, res) => {
   try {
     const blogs = await Blog.find({ "author.id": req.user._id }).sort({

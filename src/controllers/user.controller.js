@@ -6,6 +6,8 @@ const {
   deleteFromCloudinary,
 } = require("../utils/cloudinary");
 const jwt = require("jsonwebtoken");
+
+//sign up controller
 const signup = asyncHandler(async (req, res) => {
   const { name, email, password } = req.body;
   console.log("Body:", req.body);
@@ -59,6 +61,7 @@ const signup = asyncHandler(async (req, res) => {
   }
 });
 
+// log in controller
 const login = asyncHandler(async (req, res) => {
   console.log("inside")
   try {
